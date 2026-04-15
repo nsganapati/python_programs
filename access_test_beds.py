@@ -6,6 +6,16 @@ import random
 testbed_semaphore = threading.Semaphore(2)
 
 def use_testbed(user):
+    """
+    Simulates a user attempting to acquire, use, and release a test bed.
+    
+    This function uses a semaphore to ensure that only a limited number of
+    test beds can be used concurrently. Once acquired, it simulates work
+    with a random sleep duration before releasing the test bed.
+    
+    Args:
+        user (str): The name or identifier of the user trying to access a test bed.
+    """
     print(f"{user} is waiting for a test bed...")
 
     # acquire test bed
