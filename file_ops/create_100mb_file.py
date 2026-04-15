@@ -1,4 +1,10 @@
 def create_10mb_single_line_file(filename):
+    """
+    Creates a 10MB text file consisting of repetitively generated string data.
+    
+    Args:
+        filename (str): The path or name of the file to create and write data to.
+    """
     target_size = 10*1024*1024
     chunk = "word " * 100 # 5000 bytes
 

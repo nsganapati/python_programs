@@ -4,6 +4,15 @@ import os
 HUNDRED_MB=100 * 1024 * 1024 
 
 def find_large_files(directory):
+    """
+    Finds and returns a list of files in the given directory that are 100MB or larger.
+    
+    Args:
+        directory (str): The directory path to search for large files.
+        
+    Returns:
+        list: A list of absolute file paths matching or exceeding the size threshold.
+    """
     large_files = []
     for file in os.listdir(directory):
         path = os.path.join(directory, file)
@@ -15,6 +24,13 @@ def find_large_files(directory):
 
 
 def read_in_chunks(file_path, chunk_size=100):
+    """
+    Reads a file line-by-line and collects words to print them in specified chunks.
+    
+    Args:
+        file_path (str): The path to the text file to read.
+        chunk_size (int): The number of words to group together and print at once.
+    """
     with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
         buffer = []
 
@@ -33,6 +49,16 @@ def read_in_chunks(file_path, chunk_size=100):
             print(" ".join(buffer))
 
 def read_in_chunks1(file_path, chunk_size=100):
+    """
+    Reads a file in 1MB chunks and collects words to print them in specified chunks.
+    
+    This is an alternative implementation to reading line-by-line, handling partial
+    words at chunk boundaries.
+    
+    Args:
+        file_path (str): The path to the text file to read.
+        chunk_size (int): The number of words to group together and print at once.
+    """
     with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
         buffer = []
         leftover=""

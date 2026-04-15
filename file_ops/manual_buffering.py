@@ -1,6 +1,16 @@
 
 
 def read_large_file(file_path, chunk_size_words=100):
+    """
+    Reads a large text file in 1MB chunks and prints words in specified chunk sizes.
+    
+    This function implements a manual buffering technique to process very large files
+    without loading the entire file into memory at once.
+    
+    Args:
+        file_path (str): The path to the text file to read.
+        chunk_size_words (int): The number of words to group together and print at once. Default is 100.
+    """
     with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
         buffer = []
         leftover = ""
